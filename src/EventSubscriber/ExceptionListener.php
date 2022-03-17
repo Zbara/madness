@@ -23,10 +23,6 @@ class ExceptionListener
         $exception = $event->getThrowable();
 
         if ($exception instanceof HttpException) {
-
-
-
-
             $response = new JsonResponse($this->response->error(DataResponse::STATUS_ERROR, $exception->getMessage()));;
             $response->setStatusCode($exception->getStatusCode());
             $response->headers->replace($exception->getHeaders());

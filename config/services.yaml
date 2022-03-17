@@ -26,6 +26,11 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
 
+    App\Service\Routing:
+        arguments:
+#            $route: '@router'
+            $router: '@router'
+
     App\Response\DataResponse:
         arguments:
             $debug: '%kernel.debug%'
