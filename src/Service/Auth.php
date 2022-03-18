@@ -2,7 +2,10 @@
 
 namespace App\Service;
 
+use App\Entity\Session;
 use App\Model\UserParams;
+use App\Repository\SessionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class Auth
 {
@@ -12,14 +15,20 @@ class Auth
     ];
 
     var array $data = ['platform_id', 'auth_key', 'version', 'language'];
+    var array $required = ['session_id', 'session_key'];
+
 
     private UserParams $params;
     private Routing $routing;
+    private SessionRepository $sessionRepository;
+    private EntityManagerInterface $manager;
 
-    public function __construct(UserParams $params, Routing $routing)
+    public function __construct(UserParams $params, Routing $routing, SessionRepository $sessionRepository, EntityManagerInterface $manager)
     {
         $this->params = $params;
         $this->routing = $routing;
+        $this->sessionRepository = $sessionRepository;
+        $this->manager = $manager;
     }
 
     public function helper(string $params, string $route = null)
@@ -30,18 +39,31 @@ class Auth
             return $params;
         } elseif ($data = $this->validate($params)) {
             return $data;
-        } elseif (!$this->sig($params)) {
-            return ['Wrong signature'];
+        }
+        return $this->examination($params, $route);
+    }
+
+
+    private function examination(array $params, string $route): array|bool
+    {
+        $this->setter($params);
+
+        if (!$this->sig($params)) {
+            return ['Wrong signature or auth error.'];
         } elseif ($this->getSession($params, $route)) {
             return ['Wrong user session'];
         }
-        $this->setter($params);
+        return true;
     }
 
     private function getSession(array $params, string $route): bool
     {
         if (!in_array($route, ['app_init', 'app_authorize'])) {
-            return true;
+            $session = $this->sessionRepository->findOneBy(['session_key' => $this->params->getSessionKey(), 'count' => $this->params->getSessionId()]);
+
+            if (isset($session)) {
+                return false;
+            } else return true;
         } else return false;
     }
 
@@ -56,7 +78,7 @@ class Auth
     {
         foreach ($params as $key => $item) {
             if (!in_array($key, ['auth_key', 'version', 'language'])) {
-                if($key === 'app_friends'){
+                if (in_array($key,['app_friends', 'methods'])) {
                     $this->params->$key = explode(',', $item);
                 } else $this->params->$key = $item;
             }
@@ -65,10 +87,13 @@ class Auth
 
     private function validate(array $params): array
     {
-        /** Добавление в массив обязательных полей для этого роута */
+        $error = [];
+
         $this->data = array_merge($this->routing->getRuterOptions(), $this->data);
 
-        $error = [];
+        if (!in_array($this->routing->getRoute(), ['app_init', 'app_authorize'])) {
+            $this->data = array_merge($this->required, $this->data);
+        }
 
         foreach ($this->data as $key => $item) {
             if (empty(array_key_exists($item, $params))) {

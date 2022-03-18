@@ -17,7 +17,16 @@ class AuthSubscriber implements EventSubscriberInterface
     private Auth $auth;
     private Routing $routing;
 
-    public function __construct(DataResponse $dataResponse, Auth $auth, Routing $routing)
+    /**
+     * @param DataResponse $dataResponse
+     * @param Auth $auth
+     * @param Routing $routing
+     */
+    public function __construct(
+        DataResponse $dataResponse,
+        Auth         $auth,
+        Routing      $routing
+    )
     {
         $this->response = $dataResponse;
         $this->auth = $auth;
@@ -32,7 +41,7 @@ class AuthSubscriber implements EventSubscriberInterface
 
                 $auth = $this->auth->helper($params, $event->getRequest()->attributes->get('_route'));
 
-                if (isset($auth)) {
+                if (is_array($auth) || is_string($auth)) {
                     $response = new JsonResponse($this->response->error(DataResponse::STATUS_ERROR, $auth));;
                     $event->setResponse($response);
                 }

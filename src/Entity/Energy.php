@@ -13,7 +13,7 @@ class Energy
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'energies')]
+    #[ORM\ManyToOne(targetEntity: Users::class, cascade: ['persist', 'remove'], inversedBy: 'energies')]
     private $user;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -26,7 +26,14 @@ class Energy
     private $stamp;
 
     #[ORM\Column(type: 'integer')]
-    private $used;
+    private $used = 0;
+
+
+    public function __construct()
+    {
+        $this->stamp = time();
+
+    }
 
     public function getId(): ?int
     {

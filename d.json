@@ -1,6 +1,82 @@
 {
     "response": {
         "data": {
+            "energy": {
+                "work": {
+                    "current": 74,
+                    "stamp": 1647565141
+                }
+            },
+            "drops_request": [
+                {
+                    "xp": 8,
+                    "currency1": 7
+                }
+            ]
+        },
+        "system": {
+            "version": 7,
+            "time": 1647565141,
+            "memory": 41,
+            "generation": 0.68971,
+            "server": "web34",
+            "production": "no",
+            "language": "ru"
+        }
+    }
+}
+
+{
+    "response": {
+        "data": {
+            "drops": [
+                {
+                    "xp": 9900
+                }
+            ]
+        }}
+{
+    "response": {
+        "data": {
+            "pve": {
+                "boss": {
+                    "init_health": 1333,
+                    "pve_id": 49151089,
+                    "id": 1,
+                    "health": 1333,
+                    "start": 1647564622,
+                    "finish": 1647571822
+                },
+                "user": {
+                    "init_health": 51,
+                    "health": 51
+                },
+                "users": [
+                    {
+                        "id": 3,
+                        "name": "Сергей",
+                        "health": 51,
+                        "damage": 0,
+                        "stamp": 1647564622
+                    }
+                ]
+            }
+        },
+        "system": {
+            "version": 7,
+            "time": 1647565392,
+            "memory": 10.75,
+            "generation": 0.08447,
+            "server": "web34",
+            "production": "no",
+            "language": "ru"
+        }
+    }
+}
+
+{
+    "response": {
+        "data": {
             "user": {
                 "uid": 124079,
                 "platform_id": "135057576",

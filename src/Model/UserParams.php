@@ -15,6 +15,44 @@ class UserParams
     var string $avatar;
     var string $first_name;
     var string $birthdate;
+    var string $session_key;
+    var int $session_id;
+
+    /**
+     * @return string
+     */
+    public function getSessionKey(): string
+    {
+        return $this->session_key;
+    }
+
+    /**
+     * @param string $session_key
+     * @return UserParams
+     */
+    public function setSessionKey(string $session_key): UserParams
+    {
+        $this->session_key = $session_key;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSessionId(): int
+    {
+        return $this->session_id;
+    }
+
+    /**
+     * @param int $session_id
+     * @return UserParams
+     */
+    public function setSessionId(int $session_id): UserParams
+    {
+        $this->session_id = $session_id;
+        return $this;
+    }
 
     /**
      * @return int
@@ -57,7 +95,7 @@ class UserParams
      */
     public function getAppFriends(): array
     {
-        return $this->app_friends;
+        return array_unique($this->app_friends);
     }
 
     /**

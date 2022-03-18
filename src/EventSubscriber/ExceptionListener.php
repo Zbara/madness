@@ -14,7 +14,9 @@ class ExceptionListener
 {
     private DataResponse $response;
 
-    public function __construct(DataResponse $dataResponse){
+    public function __construct(
+        DataResponse $dataResponse
+    ){
         $this->response = $dataResponse;
     }
 

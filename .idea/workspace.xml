@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57ddce11-c77a-4960-84a5-6f32e46b148b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/UserParams.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Authorize.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Routing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/User/Currency.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/User/Energies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/User/SessionOption.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/User/Setting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/User/SkillsOptions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Libs/GameLibs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d.json" beforeDir="false" afterPath="$PROJECT_DIR$/d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Energy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Energy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/AuthSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/AuthSubscriber.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventSubscriber/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/ExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/UserParams.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserParams.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Authorize.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Authorize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Routing.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +124,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MadGame" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Рабочий стол/mad" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -146,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647377247891</updated>
       <workItem from="1647377249151" duration="27124000" />
-      <workItem from="1647541883852" duration="9021000" />
+      <workItem from="1647541883852" duration="33325000" />
     </task>
     <servers />
   </component>

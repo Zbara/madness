@@ -19,6 +19,11 @@ class Routing
         $this->_route = $routeName;
     }
 
+    public function getRoute(): string
+    {
+        return $this->_route;
+    }
+
     public function getRuterOptions(): bool|array
     {
         foreach ($this->router->getRouteCollection() as $key => $item) {

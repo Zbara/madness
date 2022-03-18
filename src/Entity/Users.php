@@ -6,6 +6,7 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 class Users
@@ -16,7 +17,7 @@ class Users
     private $id;
 
     #[ORM\Column(type: 'integer')]
-    private $platform;
+    private $platformId;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $real_name;
@@ -30,13 +31,10 @@ class Users
     #[ORM\Column(type: 'string', length: 255)]
     private $avatar;
 
-    #[ORM\Column(type: 'array')]
-    private $skills = [];
-
     #[ORM\Column(type: 'integer')]
     private $room;
 
-    #[ORM\Column(type: 'smallint')]
+    #[ORM\Column(type: 'bigint')]
     private $experience;
 
     #[ORM\Column(type: 'integer')]
@@ -48,12 +46,26 @@ class Users
     #[ORM\Column(type: 'array')]
     private $currency = [];
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Energy::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Energy::class, cascade: ['persist', 'remove'])]
     private $energies;
 
+    #[ORM\Column(type: 'integer')]
+    private $created_at;
+
+    #[ORM\Column(type: 'integer')]
+    private $last_time;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Skills::class, cascade: ['persist', 'remove'])]
+    private $skills;
+
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Session::class, cascade: ['persist', 'remove'])]
+    private $session;
+
+    #[Pure]
     public function __construct()
     {
         $this->energies = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,14 +73,14 @@ class Users
         return $this->id;
     }
 
-    public function getPlatform(): ?int
+    public function getPlatformId(): ?int
     {
-        return $this->platform;
+        return $this->platformId;
     }
 
-    public function setPlatform(int $platform): self
+    public function setPlatformId(int $platformId): self
     {
-        $this->platform = $platform;
+        $this->platformId = $platformId;
 
         return $this;
     }
@@ -117,18 +129,6 @@ class Users
     public function setAvatar(string $avatar): self
     {
         $this->avatar = $avatar;
-
-        return $this;
-    }
-
-    public function getSkills(): ?array
-    {
-        return $this->skills;
-    }
-
-    public function setSkills(array $skills): self
-    {
-        $this->skills = $skills;
 
         return $this;
     }
@@ -224,6 +224,82 @@ class Users
                 $energy->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?int
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(int $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getLastTime(): ?int
+    {
+        return $this->last_time;
+    }
+
+    public function setLastTime(int $last_time): self
+    {
+        $this->last_time = $last_time;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Skills>
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skills $skill): self
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills[] = $skill;
+            $skill->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skills $skill): self
+    {
+        if ($this->skills->removeElement($skill)) {
+            // set the owning side to null (unless already changed)
+            if ($skill->getUser() === $this) {
+                $skill->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSession(): ?Session
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Session $session): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($session === null && $this->session !== null) {
+            $this->session->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($session !== null && $session->getUser() !== $this) {
+            $session->setUser($this);
+        }
+
+        $this->session = $session;
 
         return $this;
     }
