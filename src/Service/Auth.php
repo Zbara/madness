@@ -6,6 +6,9 @@ use App\Entity\Session;
 use App\Model\UserParams;
 use App\Repository\SessionRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use ReflectionProperty;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class Auth
 {
@@ -17,22 +20,32 @@ class Auth
     var array $data = ['platform_id', 'auth_key', 'version', 'language'];
     var array $required = ['session_id', 'session_key'];
 
-
     private UserParams $params;
     private Routing $routing;
     private SessionRepository $sessionRepository;
     private EntityManagerInterface $manager;
+    private ValidatorInterface $validator;
 
-    public function __construct(UserParams $params, Routing $routing, SessionRepository $sessionRepository, EntityManagerInterface $manager)
+    public function __construct(
+        UserParams $params,
+        Routing $routing,
+        SessionRepository $sessionRepository,
+        EntityManagerInterface $manager,
+        ValidatorInterface $validator,
+        RouterInterface $router
+    )
     {
         $this->params = $params;
         $this->routing = $routing;
         $this->sessionRepository = $sessionRepository;
         $this->manager = $manager;
+        $this->validator = $validator;
     }
 
     public function helper(string $params, string $route = null)
     {
+        $this->routing->setRouteName($route);
+
         $params = $this->decode($params);
 
         if (!is_array($params)) {
@@ -43,11 +56,11 @@ class Auth
         return $this->examination($params, $route);
     }
 
-
     private function examination(array $params, string $route): array|bool
     {
-        $this->setter($params);
-
+        if ($setter = $this->setter($params)) {
+            return $setter;
+        }
         if (!$this->sig($params)) {
             return ['Wrong signature or auth error.'];
         } elseif ($this->getSession($params, $route)) {
@@ -62,6 +75,7 @@ class Auth
             $session = $this->sessionRepository->findOneBy(['session_key' => $this->params->getSessionKey(), 'count' => $this->params->getSessionId()]);
 
             if (isset($session)) {
+                $this->params->setUser($session->getUser());
                 return false;
             } else return true;
         } else return false;
@@ -74,15 +88,29 @@ class Auth
         return $auth_key == $params['auth_key'];
     }
 
-    private function setter(array $params)
+    private function setter(array $params): array
     {
+        $error = [];
+
         foreach ($params as $key => $item) {
-            if (!in_array($key, ['auth_key', 'version', 'language'])) {
-                if (in_array($key,['app_friends', 'methods'])) {
-                    $this->params->$key = explode(',', $item);
-                } else $this->params->$key = $item;
+            if (!in_array($key, ['auth_key', 'version', 'language', 'sig'])) {
+                try {
+                    $property = new ReflectionProperty($this->params, $key);
+                    $property->setAccessible(true);
+
+                    if ($property->getType() == 'array') {
+                        $property->setValue($this->params, explode(',', $item));
+                    } elseif ($property->getType() == 'string') {
+                        $property->setValue($this->params, (string)$item);
+                    } elseif ($property->getType() == 'int') {
+                        $property->setValue($this->params, (int)$item);
+                    }
+                } catch (\ReflectionException $e) {
+                    $error[] = $e->getMessage();
+                }
             }
         }
+        return $error;
     }
 
     private function validate(array $params): array
@@ -94,12 +122,16 @@ class Auth
         if (!in_array($this->routing->getRoute(), ['app_init', 'app_authorize'])) {
             $this->data = array_merge($this->required, $this->data);
         }
+        $error = array_diff(array_keys($params), $this->data);
 
-        foreach ($this->data as $key => $item) {
-            if (empty(array_key_exists($item, $params))) {
-                $error[] = sprintf('Param [%s] required', $item);
+        if (count($error) === 0) {
+            foreach ($this->data as $key => $item) {
+                if (empty(array_key_exists($item, $params))) {
+                    $error[] = sprintf('Param [%s] required', $item);
+                }
             }
-        }
+        } else $error = [sprintf('Extra data, [%s].', implode(',', $error))];
+
         return $error;
     }
 

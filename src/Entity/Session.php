@@ -17,19 +17,19 @@ class Session
     private $user;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $session_key;
+    private $session_key = 'data';
 
     #[ORM\Column(type: 'integer')]
-    private $created;
+    private $created = 0;
 
     #[ORM\Column(type: 'integer')]
-    private $count;
+    private $count = 0;
 
     #[ORM\Column(type: 'array')]
     private $friends = [];
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $referrer;
+    private $referrer = 'test';
 
     public function getId(): ?int
     {

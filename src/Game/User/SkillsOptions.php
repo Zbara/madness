@@ -11,18 +11,15 @@ class SkillsOptions
     {
         $skills = [];
 
-        foreach ($getSkills->getSkills() as $skill) {
-            if ($getSkills->getSex() == $skill->getSex()) {
-                foreach ($skill->getSkills() as $i => $item) {
-                    $skills[] =
-                        [
-                            'name' => $i,
-                            'base' => $item,
-                            'store' => $skill->getStore()[$i],
-                            'temp' => 0
-                        ];
-                }
-            }
+        foreach ($getSkills->getSkills()->getSkills() as $i => $skill) {
+            $skills[] =
+                [
+                    'name' => $i,
+                    'base' => $skill,
+                    'store_male' => $getSkills->getSkills()->getStore($i, 'male'),
+                    'store_female' => $getSkills->getSkills()->getStore($i, 'female'),
+                    'temp' => 0
+                ];
         }
         return $skills;
     }

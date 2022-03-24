@@ -3,6 +3,7 @@
 namespace App\Game;
 
 use App\Entity\Energy;
+use App\Entity\Session;
 use App\Entity\Skills;
 use App\Game\User\Currency;
 use App\Game\User\Energies;
@@ -11,6 +12,7 @@ use App\Entity\Users;
 use App\Game\User\SessionOption;
 use App\Game\User\Setting;
 use App\Game\User\SkillsOptions;
+use App\Json\ParserLevel;
 use App\Libs\GameLibs;
 use App\Model\UserParams;
 use App\Repository\UsersRepository;
@@ -26,14 +28,22 @@ class Authorize
         'skill4' => 0
     ];
     const SKILLS_STORE = [
-        'skill1' => 0,
-        'skill2' => 0,
-        'skill3' => 0,
-        'skill4' => 0
+        'male' => [
+            'skill1' => 0,
+            'skill2' => 0,
+            'skill3' => 0,
+            'skill4' => 0
+        ],
+        'female' => [
+            'skill1' => 0,
+            'skill2' => 0,
+            'skill3' => 0,
+            'skill4' => 0
+        ]
     ];
 
     const ROOM = 1;
-    const CURRENCY = [1000, 100, 0, 0];
+
     const ENERGY = [
         'work' => 80,
         'pvp' => 0,
@@ -51,6 +61,7 @@ class Authorize
     private Setting $setting;
     private SkillsOptions $skillsOptions;
     private SessionOption $session;
+    private ParserLevel $parserLevel;
 
     public function __construct(
         UserParams             $params,
@@ -62,6 +73,7 @@ class Authorize
         Setting                $setting,
         SkillsOptions          $skillsOptions,
         SessionOption          $sessionOption,
+        ParserLevel          $parserLevel,
     )
     {
         $this->params = $params;
@@ -73,9 +85,10 @@ class Authorize
         $this->setting = $setting;
         $this->skillsOptions = $skillsOptions;
         $this->session = $sessionOption;
+        $this->parserLevel = $parserLevel;
     }
 
-    public function hepler() : array
+    public function hepler(): array
     {
         $user = $this->user();
 
@@ -83,7 +96,7 @@ class Authorize
             'uid' => $user->getId(),
             'platform_id' => $user->getPlatformId(),
             'currency' => $this->currency->getCurrency($user->getCurrency()),
-            'level' => GameLibs::getLevel($user->getExperience()),
+            'level' => $this->parserLevel->getLevel($user->getExperience())->getId(),
             'xp' => $user->getExperience(),
             'settings' => $this->setting->getSettings($user->getSettings()),
             'platform_name' => $user->getRealName(),
@@ -94,7 +107,7 @@ class Authorize
             'energy' => $this->energy->getEnergy($user),
             'name' => $user->getName(),
             'sex' => $user->getSex(),
-            'friend_count' => 0,
+            'friend_count' => count($this->params->getAppFriends()),
             'invite_count' => 0,
             'top' => [
                 'xp' => [
@@ -132,13 +145,13 @@ class Authorize
                 ->setExperience(0)
                 ->setSettings($settings)
                 ->setBattleRank(self::START_BATTLE_RANK)
-                ->setCurrency(self::CURRENCY);
+                ->setCurrency($this->currency->startCurrency());
 
             $skills = new Skills();
             $skills->setSkills((self::SKILLS))
-                ->setStore(self::SKILLS_STORE)
-                ->setSex($sex);
-            $user->addSkill($skills);
+                ->setStore(self::SKILLS_STORE);
+
+            $user->setSkills($skills);
 
             foreach (self::ENERGY as $i => $value) {
                 $energy = new Energy();
@@ -146,14 +159,13 @@ class Authorize
                     ->setCurrent($value);
                 $user->addEnergy($energy);
             }
+            $session = new Session();
+            $user->setSession($session);
         }
         $user->setRealName($this->params->getFirstName() . ' ' . $this->params->getLastName())
             ->setAvatar($this->params->getAvatar())
             ->setName($this->params->getFirstName())
             ->setLastTime(time());
-
-
-
 
         $this->manager->persist($user);
         $this->manager->flush();

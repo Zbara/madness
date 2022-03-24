@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Game\Authorize;
+use App\Game\BattlePve;
+use App\Game\Fortunes;
+use App\Game\Stats;
 use App\Model\UserParams;
 use App\Response\DataResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,16 +29,40 @@ class GameController extends AbstractController
         return $this->json($authorize->hepler());
     }
 
-    #[Route('/pve/start', name: 'app_pve_start')]
-    public function pveStart(DataResponse $dataResponse, UserParams $params): Response
+    #[Route('/pve/start', name: 'app_pve_start', options: ['boss_id'])]
+    public function pveStart(BattlePve $pve): Response
     {
-        return $this->json($dataResponse->success(DataResponse::STATUS_SUCCESS, []));
+        return $this->json($pve->hepler());
+    }
+    #[Route('/pve/use_ability', name: 'app_pve_use_ability')]
+    public function useAbility(BattlePve $pve): Response
+    {
+        return $this->json($pve->use_ability());
     }
 
     #[Route('/contacts/get', name: 'app_contacts_start')]
     public function contacts(): Response
     {
-        return $this->json([]);
+        return $this->json();
     }
-
+    #[Route('/fortune/play', name: 'app_fortune_play')]
+    public function fortunePlay(Fortunes $fortunes): Response
+    {
+        return $this->json($fortunes->play());
+    }
+    #[Route('/fortune/get_prize', name: 'app_fortune_get_prize')]
+    public function get_prize(Fortunes $fortunes): Response
+    {
+        return $this->json($fortunes->get_prize());
+    }
+    #[Route('/fortune/turn', name: 'app_fortune_turn', options: ['cell_id'])]
+    public function turn(Fortunes $fortunes): Response
+    {
+        return $this->json($fortunes->turn());
+    }
+    #[Route('/stat/raise', name: 'app_stat_raise', options: ['name'])]
+    public function statsRaise(Stats $stats): Response
+    {
+        return $this->json($stats->raise());
+    }
 }

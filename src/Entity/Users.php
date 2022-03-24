@@ -55,17 +55,37 @@ class Users
     #[ORM\Column(type: 'integer')]
     private $last_time;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Skills::class, cascade: ['persist', 'remove'])]
-    private $skills;
-
     #[ORM\OneToOne(mappedBy: 'user', targetEntity: Session::class, cascade: ['persist', 'remove'])]
     private $session;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Pve::class)]
+    private $battlePve;
+
+    #[ORM\ManyToOne(targetEntity: Pve::class, inversedBy: 'users')]
+    private $battle;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: PveUsers::class)]
+    private $pveUsers;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Fortune::class)]
+    private $fortunes;
+
+    #[ORM\Column(type: 'integer')]
+    private $fortune_experince = 0;
+
+    #[ORM\ManyToOne(targetEntity: Fortune::class, inversedBy: 'users')]
+    private $fortune;
+
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Skills::class, cascade: ['persist', 'remove'])]
+    private $skills;
 
     #[Pure]
     public function __construct()
     {
         $this->energies = new ArrayCollection();
-        $this->skills = new ArrayCollection();
+        $this->battlePve = new ArrayCollection();
+        $this->pveUsers = new ArrayCollection();
+        $this->fortunes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -186,9 +206,12 @@ class Users
         return $this;
     }
 
-    public function getCurrency(): ?array
+    public function getCurrency(string $type = 'all'): array|int
     {
-        return $this->currency;
+        if($type == 'all') {
+            return $this->currency;
+        }
+        return $this->currency[$type];
     }
 
     public function setCurrency(array $currency): self
@@ -252,36 +275,6 @@ class Users
         return $this;
     }
 
-    /**
-     * @return Collection<int, Skills>
-     */
-    public function getSkills(): Collection
-    {
-        return $this->skills;
-    }
-
-    public function addSkill(Skills $skill): self
-    {
-        if (!$this->skills->contains($skill)) {
-            $this->skills[] = $skill;
-            $skill->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSkill(Skills $skill): self
-    {
-        if ($this->skills->removeElement($skill)) {
-            // set the owning side to null (unless already changed)
-            if ($skill->getUser() === $this) {
-                $skill->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getSession(): ?Session
     {
         return $this->session;
@@ -303,4 +296,149 @@ class Users
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Pve>
+     */
+    public function getBattlePve(): Collection
+    {
+        return $this->battlePve;
+    }
+
+    public function addBattlePve(Pve $battlePve): self
+    {
+        if (!$this->battlePve->contains($battlePve)) {
+            $this->battlePve[] = $battlePve;
+            $battlePve->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBattlePve(Pve $battlePve): self
+    {
+        if ($this->battlePve->removeElement($battlePve)) {
+            // set the owning side to null (unless already changed)
+            if ($battlePve->getUser() === $this) {
+                $battlePve->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getBattle(): ?Pve
+    {
+        return $this->battle;
+    }
+
+    public function setBattle(?Pve $battle): self
+    {
+        $this->battle = $battle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PveUsers>
+     */
+    public function getPveUsers(): Collection
+    {
+        return $this->pveUsers;
+    }
+
+    public function addPveUser(PveUsers $pveUser): self
+    {
+        if (!$this->pveUsers->contains($pveUser)) {
+            $this->pveUsers[] = $pveUser;
+            $pveUser->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePveUser(PveUsers $pveUser): self
+    {
+        if ($this->pveUsers->removeElement($pveUser)) {
+            // set the owning side to null (unless already changed)
+            if ($pveUser->getUser() === $this) {
+                $pveUser->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Fortune>
+     */
+    public function getFortunes(): Collection
+    {
+        return $this->fortunes;
+    }
+
+    public function addFortune(Fortune $fortune): self
+    {
+        if (!$this->fortunes->contains($fortune)) {
+            $this->fortunes[] = $fortune;
+            $fortune->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFortune(Fortune $fortune): self
+    {
+        if ($this->fortunes->removeElement($fortune)) {
+            // set the owning side to null (unless already changed)
+            if ($fortune->getUser() === $this) {
+                $fortune->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getFortuneExperince(): ?int
+    {
+        return $this->fortune_experince;
+    }
+
+    public function setFortuneExperince(int $fortune_experience): self
+    {
+        $this->fortune_experince = $fortune_experience + 1;
+
+        return $this;
+    }
+
+    public function getFortune(): ?Fortune
+    {
+        return $this->fortune;
+    }
+
+    public function setFortune(?Fortune $fortune): self
+    {
+        $this->fortune = $fortune;
+
+        return $this;
+    }
+
+
+    public function getSkills(): ?Skills
+    {
+        return $this->skills;
+    }
+
+    public function setSkills(Skills $skills): self
+    {
+        // set the owning side of the relation if necessary
+        if ($skills->getUser() !== $this) {
+            $skills->setUser($this);
+        }
+
+        $this->skills = $skills;
+
+        return $this;
+    }
+
 }

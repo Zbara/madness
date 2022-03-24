@@ -37,12 +37,12 @@ class AuthSubscriber implements EventSubscriberInterface
     {
         if ($event->isMainRequest()) {
             if ($params = $event->getRequest()->query->get('params')) {
-                $this->routing->setRouteName($event->getRequest()->attributes->get('_route'));
 
                 $auth = $this->auth->helper($params, $event->getRequest()->attributes->get('_route'));
 
                 if (is_array($auth) || is_string($auth)) {
                     $response = new JsonResponse($this->response->error(DataResponse::STATUS_ERROR, $auth));;
+
                     $event->setResponse($response);
                 }
                 return;

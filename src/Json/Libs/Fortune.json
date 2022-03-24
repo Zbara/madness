@@ -1,0 +1,1583 @@
+{
+  "libs": {
+    "fortune_level": {
+      "item": [
+        {
+          "id": "1",
+          "title": "1",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "no",
+            "cell2": "no",
+            "cell3": "no",
+            "count": "0"
+          }
+        },
+        {
+          "id": "2",
+          "title": "2",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "no",
+            "cell3": "no",
+            "count": "1"
+          }
+        },
+        {
+          "id": "3",
+          "title": "3",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "no",
+            "cell3": "no",
+            "count": "2"
+          }
+        },
+        {
+          "id": "4",
+          "title": "4",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "no",
+            "cell3": "no",
+            "count": "3"
+          }
+        },
+        {
+          "id": "5",
+          "title": "5",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "no",
+            "count": "3"
+          }
+        },
+        {
+          "id": "6",
+          "title": "6",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "no",
+            "count": "4"
+          }
+        },
+        {
+          "id": "7",
+          "title": "7",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "no",
+            "count": "5"
+          }
+        },
+        {
+          "id": "8",
+          "title": "8",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "no",
+            "count": "5"
+          }
+        },
+        {
+          "id": "9",
+          "title": "9",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "6"
+          }
+        },
+        {
+          "id": "10",
+          "title": "10",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "6"
+          }
+        },
+        {
+          "id": "11",
+          "title": "11",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "6"
+          }
+        },
+        {
+          "id": "12",
+          "title": "12",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "7"
+          }
+        },
+        {
+          "id": "13",
+          "title": "13",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "7"
+          }
+        },
+        {
+          "id": "14",
+          "title": "14",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "7"
+          }
+        },
+        {
+          "id": "15",
+          "title": "15",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "8"
+          }
+        },
+        {
+          "id": "16",
+          "title": "16",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "8"
+          }
+        },
+        {
+          "id": "17",
+          "title": "17",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "8"
+          }
+        },
+        {
+          "id": "18",
+          "title": "18",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "8"
+          }
+        },
+        {
+          "id": "19",
+          "title": "19",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "8"
+          }
+        },
+        {
+          "id": "20",
+          "title": "20",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "8"
+          }
+        },
+        {
+          "id": "21",
+          "title": "21",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "9"
+          }
+        },
+        {
+          "id": "22",
+          "title": "22",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "9"
+          }
+        },
+        {
+          "id": "23",
+          "title": "23",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "9"
+          }
+        },
+        {
+          "id": "24",
+          "title": "24",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "9"
+          }
+        },
+        {
+          "id": "25",
+          "title": "25",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "9"
+          }
+        },
+        {
+          "id": "26",
+          "title": "26",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "9"
+          }
+        },
+        {
+          "id": "27",
+          "title": "27",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "28",
+          "title": "28",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "29",
+          "title": "29",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "30",
+          "title": "30",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "31",
+          "title": "31",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "32",
+          "title": "32",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "33",
+          "title": "33",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "34",
+          "title": "34",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "10"
+          }
+        },
+        {
+          "id": "35",
+          "title": "35",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "11"
+          }
+        },
+        {
+          "id": "36",
+          "title": "36",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "11"
+          }
+        },
+        {
+          "id": "37",
+          "title": "37",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "11"
+          }
+        },
+        {
+          "id": "38",
+          "title": "38",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "11"
+          }
+        },
+        {
+          "id": "39",
+          "title": "39",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "11"
+          }
+        },
+        {
+          "id": "40",
+          "title": "40",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "12"
+          }
+        },
+        {
+          "id": "41",
+          "title": "41",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "12"
+          }
+        },
+        {
+          "id": "42",
+          "title": "42",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "12"
+          }
+        },
+        {
+          "id": "43",
+          "title": "43",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "13"
+          }
+        },
+        {
+          "id": "44",
+          "title": "44",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "13"
+          }
+        },
+        {
+          "id": "45",
+          "title": "45",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "13"
+          }
+        },
+        {
+          "id": "46",
+          "title": "46",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "14"
+          }
+        },
+        {
+          "id": "47",
+          "title": "47",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "14"
+          }
+        },
+        {
+          "id": "48",
+          "title": "48",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "14"
+          }
+        },
+        {
+          "id": "49",
+          "title": "49",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "15"
+          }
+        },
+        {
+          "id": "50",
+          "title": "50",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "15"
+          }
+        },
+        {
+          "id": "51",
+          "title": "51",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "15"
+          }
+        },
+        {
+          "id": "52",
+          "title": "52",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "16"
+          }
+        },
+        {
+          "id": "53",
+          "title": "53",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "16"
+          }
+        },
+        {
+          "id": "54",
+          "title": "54",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "16"
+          }
+        },
+        {
+          "id": "55",
+          "title": "55",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "17"
+          }
+        },
+        {
+          "id": "56",
+          "title": "56",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "17"
+          }
+        },
+        {
+          "id": "57",
+          "title": "57",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "17"
+          }
+        },
+        {
+          "id": "58",
+          "title": "58",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "17"
+          }
+        },
+        {
+          "id": "59",
+          "title": "59",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "18"
+          }
+        },
+        {
+          "id": "60",
+          "title": "60",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "18"
+          }
+        },
+        {
+          "id": "61",
+          "title": "61",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "18"
+          }
+        },
+        {
+          "id": "62",
+          "title": "62",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "19"
+          }
+        },
+        {
+          "id": "63",
+          "title": "63",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "19"
+          }
+        },
+        {
+          "id": "64",
+          "title": "64",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "19"
+          }
+        },
+        {
+          "id": "65",
+          "title": "65",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "20"
+          }
+        },
+        {
+          "id": "66",
+          "title": "66",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "20"
+          }
+        },
+        {
+          "id": "67",
+          "title": "67",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "20"
+          }
+        },
+        {
+          "id": "68",
+          "title": "68",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "21"
+          }
+        },
+        {
+          "id": "69",
+          "title": "69",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "21"
+          }
+        },
+        {
+          "id": "70",
+          "title": "70",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "7",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "21"
+          }
+        },
+        {
+          "id": "71",
+          "title": "71",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "1000000000",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "21"
+          }
+        },
+        {
+          "id": "72",
+          "title": "71",
+          "pronoun": "he",
+          "description": {
+            "-self-closing": "true"
+          },
+          "xp": "1000000000",
+          "turn": {
+            "cell1": "yes",
+            "cell2": "yes",
+            "cell3": "yes",
+            "count": "21"
+          }
+        }
+      ]
+    },
+    "fortune_pic": {
+      "item": [
+        {
+          "id": "1",
+          "picture": "http://dw.playflock.com/mad-vk/fortune/cube_01.png",
+          "preview": "http://dw.playflock.com/mad-vk/fortune/cube_01.png"
+        },
+        {
+          "id": "2",
+          "picture": "http://dw.playflock.com/mad-vk/fortune/cube_02.png",
+          "preview": "http://dw.playflock.com/mad-vk/fortune/cube_02.png"
+        },
+        {
+          "id": "3",
+          "picture": "http://dw.playflock.com/mad-vk/fortune/cube_03.png",
+          "preview": "http://dw.playflock.com/mad-vk/fortune/cube_03.png"
+        },
+        {
+          "id": "4",
+          "picture": "http://dw.playflock.com/mad-vk/fortune/cube_04.png",
+          "preview": "http://dw.playflock.com/mad-vk/fortune/cube_04.png"
+        },
+        {
+          "id": "5",
+          "picture": "http://dw.playflock.com/mad-vk/fortune/cube_05.png",
+          "preview": "http://dw.playflock.com/mad-vk/fortune/cube_05.png"
+        },
+        {
+          "id": "6",
+          "picture": "http://dw.playflock.com/mad-vk/fortune/cube_06.png",
+          "preview": "http://dw.playflock.com/mad-vk/fortune/cube_06.png"
+        }
+      ]
+    },
+    "fortune": {
+      "item": [
+        {
+          "id": "1",
+          "cell1": "0",
+          "cell2": "0",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [{
+              "type": "currency1",
+              "count": "50"
+            }]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "2",
+          "cell1": "1",
+          "cell2": "1",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [{
+              "type": "xp",
+              "count": "150"
+            }]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "3",
+          "cell1": "2",
+          "cell2": "2",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [{
+              "id": "5",
+              "type": "inventory",
+              "count": "2"
+            }]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "4",
+          "cell1": "3",
+          "cell2": "3",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [{
+              "id": "4",
+              "type": "inventory",
+              "count": "2"
+            }]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "5",
+          "cell1": "4",
+          "cell2": "4",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [{
+              "type": "currency2",
+              "count": "3"
+            }]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "6",
+          "cell1": "5",
+          "cell2": "5",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [
+              {
+                "id": "144",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "149",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "154",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "159",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "184",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "189",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "264",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "259",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "234",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "229",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "224",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "219",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "type": "currency1",
+                "count": "222"
+              },
+              {
+                "id": "289",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "288",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "287",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "286",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "281",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "280",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "309",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "308",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "303",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "302",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "301",
+                "type": "ornament_opened",
+                "count": "1"
+              },
+              {
+                "id": "300",
+                "type": "ornament_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "7",
+          "cell1": "6",
+          "cell2": "6",
+          "cell3": "0",
+          "drops": {
+            "drop_item": [
+              {
+                "type": "currency1",
+                "count": "333"
+              },
+              {
+                "id": "102",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "137",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "191",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "200",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "8",
+          "cell1": "1",
+          "cell2": "1",
+          "cell3": "1",
+          "drops": {
+            "drop_item": [
+              {
+                "type": "currency1",
+                "count": "555"
+              },
+              {
+                "id": "92",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "127",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "173",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "236",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "9",
+          "cell1": "2",
+          "cell2": "2",
+          "cell3": "2",
+          "drops": {
+            "drop_item": [
+              {
+                "type": "currency1",
+                "count": "666"
+              },
+              {
+                "id": "97",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "132",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "182",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "227",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "10",
+          "cell1": "3",
+          "cell2": "3",
+          "cell3": "3",
+          "drops": {
+            "drop_item": [
+              {
+                "type": "currency1",
+                "count": "777"
+              },
+              {
+                "id": "82",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "117",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "154",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "254",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "11",
+          "cell1": "4",
+          "cell2": "4",
+          "cell3": "4",
+          "drops": {
+            "drop_item": [
+              {
+                "type": "currency1",
+                "count": "888"
+              },
+              {
+                "id": "87",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "122",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "163",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "245",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "12",
+          "cell1": "5",
+          "cell2": "5",
+          "cell3": "5",
+          "drops": {
+            "drop_item": [
+              {
+                "id": "112",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "103",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "type": "currency1",
+                "count": "999"
+              },
+              {
+                "id": "209",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "218",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        },
+        {
+          "id": "13",
+          "cell1": "6",
+          "cell2": "6",
+          "cell3": "6",
+          "drops": {
+            "drop_item": [
+              {
+                "type": "currency1",
+                "count": "1111"
+              },
+              {
+                "id": "104",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "138",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "455",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "460",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "555",
+                "type": "cloth_opened",
+                "count": "1"
+              },
+              {
+                "id": "567",
+                "type": "cloth_opened",
+                "count": "1"
+              }
+            ]
+          },
+          "production": "yes"
+        }
+      ]
+    }
+  }
+}

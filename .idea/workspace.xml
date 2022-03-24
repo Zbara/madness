@@ -5,23 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57ddce11-c77a-4960-84a5-6f32e46b148b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Game/User/Currency.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/User/Energies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/User/SessionOption.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/User/Setting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/User/SkillsOptions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Libs/GameLibs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class/game.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exception/FortuneException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/BattlePve.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/Fortunes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/Pve/PveData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/Pve/UseAbility.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/Stats.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Game/User/Drops.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Json/Libs/Level.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Json/LoaderJSON.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Json/Model/Level.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Json/ParserLevel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Json/ParserLibsFortune.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Libs/Random.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/d.json" beforeDir="false" afterPath="$PROJECT_DIR$/d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Energy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Energy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220316101536.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220316102525.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220316102836.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220316103350.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220317220442.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220317232845.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220318133220.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220318134826.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220318160330.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220318160525.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220318161756.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Skills.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Skills.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventSubscriber/AuthSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/AuthSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/ExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Authorize.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Authorize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/User/Currency.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/User/Currency.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/User/SessionOption.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/User/SessionOption.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/User/SkillsOptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/User/SkillsOptions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Libs/GameLibs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Libs/GameLibs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/UserParams.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserParams.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Response/DataResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Response/DataResponse.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Authorize.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Authorize.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +142,7 @@
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
   <component name="ProjectId" id="26RCwBkWs34zrIPZOyFVwhVNss9" />
@@ -124,7 +155,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Рабочий стол/mad" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flybey" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -134,11 +165,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/class" />
       <recent name="$PROJECT_DIR$/src/Model" />
       <recent name="$PROJECT_DIR$/src/Service" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/var" />
     </key>
   </component>
   <component name="RunManager">
@@ -155,7 +186,8 @@
       <option name="presentableId" value="Default" />
       <updated>1647377247891</updated>
       <workItem from="1647377249151" duration="27124000" />
-      <workItem from="1647541883852" duration="33325000" />
+      <workItem from="1647541883852" duration="50967000" />
+      <workItem from="1647800096068" duration="44373000" />
     </task>
     <servers />
   </component>

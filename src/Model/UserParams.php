@@ -2,21 +2,82 @@
 
 namespace App\Model;
 
+use App\Entity\Users;
+use Symfony\Component\Validator\Constraints as Assert;
+
 class UserParams
 {
-    var int $user_id = 0;
-    var int $platform_id = 0;
-    var array $app_friends;
-    var string $sex;
-    var string $last_name;
-    var string $timezone;
-    var string $country;
-    var string $city;
-    var string $avatar;
-    var string $first_name;
-    var string $birthdate;
-    var string $session_key;
-    var int $session_id;
+    private Users $user;
+    private int $platform_id = 0;
+    private array $app_friends;
+    private string $sex;
+    private string $last_name;
+    private string $timezone;
+    private string $country;
+    private string $city;
+    private string $avatar;
+    private string $first_name;
+    private string $birthdate;
+    private string $session_key;
+    private int $session_id = 0;
+    private int $boss_id = 0;
+    private int $cell_id = 0;
+    private string $name;
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return UserParams
+     */
+    public function setName(string $name): UserParams
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getBossId(): int
+    {
+        return $this->boss_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCellId(): int
+    {
+        return $this->cell_id;
+    }
+
+    /**
+     * @param int $cell_id
+     * @return UserParams
+     */
+    public function setCellId(int $cell_id): UserParams
+    {
+        $this->cell_id = $cell_id;
+        return $this;
+    }
+
+    /**
+     * @param int $boss_id
+     * @return UserParams
+     */
+    public function setBossId(int $boss_id): UserParams
+    {
+        $this->boss_id = $boss_id;
+        return $this;
+    }
 
     /**
      * @return string
@@ -55,20 +116,17 @@ class UserParams
     }
 
     /**
-     * @return int
+     * @return Users
      */
-    public function getUserId(): int
+    public function getUser(): Users
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    /**
-     * @param int $user_id
-     * @return UserParams
-     */
-    public function setUserId(int $user_id): UserParams
+    public function setUser(Users $user): UserParams
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
+
         return $this;
     }
 

@@ -13,6 +13,7 @@ class DataResponse
 {
     const STATUS_ERROR = 0;
     const STATUS_SUCCESS = 1;
+    const STATUS_PVE_NO = 2;
 
     private GitRevision $git;
     private bool $debug;
@@ -25,23 +26,24 @@ class DataResponse
         $this->environment = $environment;
     }
 
-    #[ArrayShape(['response' => "array", 'status' => "", 'result' => "", 'system' => "array"])]
-    public function success($status, $result): array
+    #[ArrayShape(['response' => "array"])]
+    public function  success(int $status, array|string $data): array
     {
         return [
             'response' => [
-                'status' => $status,
-                'result' => $result,
+                'data' => $data,
                 'system' => $this->system()
             ]
         ];
     }
 
-    #[ArrayShape(['response' => "array", 'status' => "", 'error' => "array", 'system' => "array"])]
-    public function error($status, $messages): array
+
+    #[ArrayShape(['response' => "array"])]
+    public function error(int $status, string|array $messages): array
     {
         return [
             'response' => [
+                'data' => [],
                 'error' => [
                     'messages' => $messages,
                     'status' => $status

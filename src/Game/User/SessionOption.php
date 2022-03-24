@@ -34,7 +34,7 @@ class SessionOption
         if ($session == null) {
             $session = new Session();
             $session->setUser($user);
-            $session->setCount(1);
+            $session->setCount(0);
         }
         $session->setCreated(time())
             ->setCount($session->getCount() + 1)

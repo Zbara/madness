@@ -2,14 +2,14 @@
 
 namespace App\Service;
 
-use Symfony\Component\Routing\Router;
+use Symfony\Component\Routing\RouterInterface;
 
 class Routing
 {
-    private Router $router;
     private string $_route;
+    private RouterInterface $router;
 
-    public function __construct(Router $router)
+    public function __construct(RouterInterface $router)
     {
         $this->router = $router;
     }
@@ -30,12 +30,14 @@ class Routing
             if ($key == $this->_route) {
                 $options = $item->getOptions();
 
-                foreach ($options as $i => $option) {
-                    if (gettype($i) == 'string') {
-                        unset($options[$i]);
+                if (count($options) > 0) {
+                    foreach ($options as $i => $option) {
+                        if (gettype($i) == 'string') {
+                            unset($options[$i]);
+                        }
                     }
+                    return $options;
                 }
-                return $options;
             }
         }
         return false;
