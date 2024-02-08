@@ -2,6 +2,7 @@
 
 namespace App\Json;
 
+use App\Json\Exception\LevelException;
 use App\Json\Model\Level;
 
 class ParserLevel extends LoaderJSON
@@ -12,7 +13,7 @@ class ParserLevel extends LoaderJSON
         ->library();
     }
 
-    public function getLevel(int $xp = 0, bool $information = false): Level|int
+    public function getLevel(int $xp = 0): Level
     {
         $sum = 0;
         foreach ($this->getJson('item') as  $exp) {
@@ -29,6 +30,6 @@ class ParserLevel extends LoaderJSON
                 return $level;
             }
         }
-        return -1;
+        throw new LevelException('Search level error.');
     }
 }

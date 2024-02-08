@@ -3,8 +3,11 @@
 namespace App\Game;
 
 use App\Entity\Energy;
+use App\Entity\Job;
 use App\Entity\Session;
 use App\Entity\Skills;
+use App\Game\Collection\Collections;
+use App\Game\Job\Missions;
 use App\Game\User\Currency;
 use App\Game\User\Energies;
 use App\Entity\Settings;
@@ -13,11 +16,11 @@ use App\Game\User\SessionOption;
 use App\Game\User\Setting;
 use App\Game\User\SkillsOptions;
 use App\Json\ParserLevel;
-use App\Libs\GameLibs;
 use App\Model\UserParams;
 use App\Repository\UsersRepository;
 use App\Response\DataResponse;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Collection as EntityCollection;
 
 class Authorize
 {
@@ -52,6 +55,37 @@ class Authorize
     const START_BATTLE_RANK = 1500;
 
 
+    const START_MISSION = [
+        [
+            'id' => 1,
+            'job' => [
+                [
+                    'id' => 1,
+                    'count' => 0
+                ],
+                [
+                    'id' => 2,
+                    'count' => 0
+                ],
+                [
+                    'id' => 3,
+                    'count' => 0
+                ],
+                [
+                    'id' => 4,
+                    'count' => 0
+                ],
+                [
+                    'id' => 5,
+                    'count' => 0
+                ]
+            ],
+            'count' => 0,
+            'created' => 0,
+            'stamp' => 0
+        ]
+    ];
+
     private UserParams $params;
     private EntityManagerInterface $manager;
     private UsersRepository $usersRepository;
@@ -62,6 +96,8 @@ class Authorize
     private SkillsOptions $skillsOptions;
     private SessionOption $session;
     private ParserLevel $parserLevel;
+    private Missions $missions;
+    private Collections $collections;
 
     public function __construct(
         UserParams             $params,
@@ -73,7 +109,9 @@ class Authorize
         Setting                $setting,
         SkillsOptions          $skillsOptions,
         SessionOption          $sessionOption,
-        ParserLevel          $parserLevel,
+        ParserLevel            $parserLevel,
+        Missions               $missions,
+        Collections $collections
     )
     {
         $this->params = $params;
@@ -86,6 +124,8 @@ class Authorize
         $this->skillsOptions = $skillsOptions;
         $this->session = $sessionOption;
         $this->parserLevel = $parserLevel;
+        $this->missions = $missions;
+        $this->collections = $collections;
     }
 
     public function hepler(): array
@@ -117,8 +157,11 @@ class Authorize
                     'total' => (int)$user->getBattleRank()
                 ]
             ],
+            'missions' => $this->missions->getMissions($user->getJob()),
+            'collection' => $this->collections->getCollection($user->getCollection()),
             'session' => $this->session->setSession($user)
         ];
+
         $this->manager->flush();
 
         return $this->dataResponse->success(DataResponse::STATUS_SUCCESS, $data);
@@ -129,29 +172,31 @@ class Authorize
         $user = $this->usersRepository->findOneBy(['platformId' => $this->params->getPlatformId()]);
 
         if (null === $user) {
-            $sex = $this->params->getSex() == 'unknown' ? 'unknown' : ($this->params->getSex() == 'female' ? 'female' : 'male');
-
-            $settings = new Settings();
-            $settings->setMusic(true)
-                ->setSound(true)
-                ->setMusicVolume(50)
-                ->setSoundVolume(50);
-
             $user = new Users();
             $user->setPlatformId($this->params->getPlatformId())
                 ->setCreatedAt(time())
-                ->setSex($sex)
+                ->setSex($this->params->getSex() == 'unknown' ? 'unknown' : ($this->params->getSex() == 'female' ? 'female' : 'male'))
                 ->setRoom(self::ROOM)
                 ->setExperience(0)
-                ->setSettings($settings)
                 ->setBattleRank(self::START_BATTLE_RANK)
-                ->setCurrency($this->currency->startCurrency());
-
-            $skills = new Skills();
-            $skills->setSkills((self::SKILLS))
-                ->setStore(self::SKILLS_STORE);
-
-            $user->setSkills($skills);
+                ->setCurrency($this->currency->startCurrency())
+                ->setCollection((new EntityCollection())
+                    ->setCreatedAt(time())
+                    ->setCollection(Collections::COLLECTION)
+                )
+                ->setJob((new Job())
+                    ->setMissions(self::START_MISSION)
+                )
+                ->setSession((new Session()))
+                ->setSkills((new Skills())
+                    ->setSkills(self::SKILLS)
+                    ->setStore(self::SKILLS_STORE)
+                )->setSettings((new Settings())
+                    ->setMusic(true)
+                    ->setSound(true)
+                    ->setMusicVolume(50)
+                    ->setSoundVolume(50)
+                );
 
             foreach (self::ENERGY as $i => $value) {
                 $energy = new Energy();
@@ -159,8 +204,7 @@ class Authorize
                     ->setCurrent($value);
                 $user->addEnergy($energy);
             }
-            $session = new Session();
-            $user->setSession($session);
+
         }
         $user->setRealName($this->params->getFirstName() . ' ' . $this->params->getLastName())
             ->setAvatar($this->params->getAvatar())

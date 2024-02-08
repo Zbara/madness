@@ -32,7 +32,18 @@ class Energies
         $this->manager = $manager;
     }
 
-    public function getEnergy(Users $user): array
+    public function setEnergy(Users $user, string $type = null, int $current = 0)
+    {
+        foreach ($user->getEnergies() as $key => $value) {
+            if ($type === $value->getCategory()) {
+                $value->setCurrent($value->getCurrent() - $current)
+                    ->setStamp(microtime(true))
+                    ->setUsed($value->getUsed() + $current);
+            }
+        }
+    }
+
+    public function getEnergy(Users $user, string $type = null): int|array
     {
         $energies = [];
 
@@ -58,6 +69,10 @@ class Energies
                 'stamp' => $value->getStamp(),
                 'used' => $value->getUsed()
             ];
+
+            if ($type == $value->getCategory()) {
+                return $value->getCurrent();
+            }
         }
         return $energies;
     }

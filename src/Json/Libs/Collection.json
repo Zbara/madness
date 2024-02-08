@@ -1,0 +1,27 @@
+{
+  "collection": {
+    "item": [{
+      "id": "1",
+      "title": "Набор \"Окулиста\"",
+      "collect": "1,2,3,4,5",
+      "drops": {
+        "drop_item": [
+          {
+            "type": "currency1",
+            "count": "26"
+          },
+          {
+            "type": "xp",
+            "count": "30"
+          },
+          {
+            "id": "1",
+            "type": "buff",
+            "count": "1"
+          }
+        ]
+      },
+      "production": "yes"
+    }]
+  }
+}

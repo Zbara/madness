@@ -2,32 +2,27 @@
 
 namespace App\Service;
 
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\RouterInterface;
 
 class Routing
 {
-    private string $_route;
-    private RouterInterface $router;
-
-    public function __construct(RouterInterface $router)
+    public function __construct(
+        private RouterInterface $router,
+        private RequestStack    $requestStack
+    )
     {
-        $this->router = $router;
-    }
-
-    public function setRouteName(string $routeName): void
-    {
-        $this->_route = $routeName;
     }
 
     public function getRoute(): string
     {
-        return $this->_route;
+        return $this->requestStack->getCurrentRequest()->attributes->get('_route');
     }
 
     public function getRuterOptions(): bool|array
     {
         foreach ($this->router->getRouteCollection() as $key => $item) {
-            if ($key == $this->_route) {
+            if ($key == $this->getRoute()) {
                 $options = $item->getOptions();
 
                 if (count($options) > 0) {

@@ -2,6 +2,7 @@
 
 namespace App\Game;
 
+use App\Exception\SkillsException;
 use App\Game\User\Currency;
 use App\Game\User\SkillsOptions;
 use App\Json\ParserLevel;
@@ -52,23 +53,25 @@ class Stats
         $user = $this->usersRepository->findOneBy(['id' => $this->params->getUser()]);
 
         if (array_key_exists($this->params->getName(), $user->getSkills()->getSkills())) {
+
             if ($user->getCurrency('pills') >= self::UPDATE_COUNT) {
                 $max_skills = $this->parserLevel->getLevel($user->getExperience())->getMaxSkill($this->params->getName());
 
-                if ($user->getSkills()->getSkills($this->params->getName()) <= $max_skills) {
+                if ($user->getSkills()->getSkills($this->params->getName()) < $max_skills) {
                     $user->getSkills()->setSkills($user->getSkills()->getSkills(), 1, $this->params->getName());
                     $user->setCurrency($this->currency->calculator($user->getCurrency(), Currency::MINUS, self::UPDATE_COUNT, self::MONEY_TYPE));
 
                     $this->manager->flush();
 
                     return $this->dataResponse->success(DataResponse::STATUS_SUCCESS, [
-                        'skills' => $this->skillsOptions->getSkills($user)
+                        'skills' => $this->skillsOptions->getSkills($user),
+                        'max_skills' => $max_skills
                     ]);
                 }
-                return $this->dataResponse->error(DataResponse::STATUS_ERROR, 'level max ' . $this->params->getName());
+                throw new SkillsException(sprintf('level max %s, max %s ', $this->params->getName(), $max_skills));
             }
-            return $this->dataResponse->error(DataResponse::STATUS_ERROR, 'no money');
+            throw new SkillsException('no money');
         }
-        return $this->dataResponse->error(DataResponse::STATUS_ERROR, 'no params ' . $this->params->getName());
+        throw new SkillsException(sprintf('no params %s ', $this->params->getName()));
     }
 }

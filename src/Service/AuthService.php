@@ -3,6 +3,10 @@
 namespace App\Service;
 
 use App\Entity\Session;
+use App\Exception\ParamsException;
+use App\Exception\SessionException;
+use App\Exception\SignatureException;
+use App\Exception\ValidateException;
 use App\Model\UserParams;
 use App\Repository\SessionRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,7 +14,7 @@ use ReflectionProperty;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class Auth
+class AuthService
 {
     var array $app = [
         'appId' => 3945528,
@@ -23,62 +27,50 @@ class Auth
     private UserParams $params;
     private Routing $routing;
     private SessionRepository $sessionRepository;
-    private EntityManagerInterface $manager;
     private ValidatorInterface $validator;
 
     public function __construct(
-        UserParams $params,
-        Routing $routing,
-        SessionRepository $sessionRepository,
-        EntityManagerInterface $manager,
+        UserParams             $params,
+        Routing                $routing,
+        SessionRepository      $sessionRepository,
         ValidatorInterface $validator,
-        RouterInterface $router
+
     )
     {
         $this->params = $params;
         $this->routing = $routing;
         $this->sessionRepository = $sessionRepository;
-        $this->manager = $manager;
         $this->validator = $validator;
     }
 
-    public function helper(string $params, string $route = null)
+    public function helper(string $params): void
     {
-        $this->routing->setRouteName($route);
-
         $params = $this->decode($params);
 
-        if (!is_array($params)) {
-            return $params;
-        } elseif ($data = $this->validate($params)) {
-            return $data;
-        }
-        return $this->examination($params, $route);
+        if (is_array($params)) {
+            $this->validate($params)->examination($params);
+        } else throw new ParamsException($params);
     }
 
-    private function examination(array $params, string $route): array|bool
+    private function examination(array $params): void
     {
-        if ($setter = $this->setter($params)) {
-            return $setter;
+        $this->setter($params);
+
+        if (empty($this->sig($params))) {
+            throw new SignatureException('Wrong signature.');
         }
-        if (!$this->sig($params)) {
-            return ['Wrong signature or auth error.'];
-        } elseif ($this->getSession($params, $route)) {
-            return ['Wrong user session'];
-        }
-        return true;
+        $this->getSession($params);
     }
 
-    private function getSession(array $params, string $route): bool
+    private function getSession(array $params): void
     {
-        if (!in_array($route, ['app_init', 'app_authorize'])) {
+        if (!in_array($this->routing->getRoute(), ['app_init', 'app_authorize'])) {
             $session = $this->sessionRepository->findOneBy(['session_key' => $this->params->getSessionKey(), 'count' => $this->params->getSessionId()]);
 
             if (isset($session)) {
                 $this->params->setUser($session->getUser());
-                return false;
-            } else return true;
-        } else return false;
+            } else throw new SessionException('Wrong user session');
+        }
     }
 
     private function sig(array $params): bool
@@ -88,10 +80,8 @@ class Auth
         return $auth_key == $params['auth_key'];
     }
 
-    private function setter(array $params): array
+    private function setter(array $params): void
     {
-        $error = [];
-
         foreach ($params as $key => $item) {
             if (!in_array($key, ['auth_key', 'version', 'language', 'sig'])) {
                 try {
@@ -106,33 +96,33 @@ class Auth
                         $property->setValue($this->params, (int)$item);
                     }
                 } catch (\ReflectionException $e) {
-                    $error[] = $e->getMessage();
+                    throw new ParamsException($e->getMessage());
                 }
             }
         }
-        return $error;
     }
 
-    private function validate(array $params): array
+    private function validate(array $params): AuthService
     {
-        $error = [];
-
         $this->data = array_merge($this->routing->getRuterOptions(), $this->data);
 
         if (!in_array($this->routing->getRoute(), ['app_init', 'app_authorize'])) {
             $this->data = array_merge($this->required, $this->data);
         }
-        $error = array_diff(array_keys($params), $this->data);
+        $extra = array_diff(array_keys($params), $this->data);
 
-        if (count($error) === 0) {
+        if (count($extra) === 0) {
             foreach ($this->data as $key => $item) {
                 if (empty(array_key_exists($item, $params))) {
-                    $error[] = sprintf('Param [%s] required', $item);
+                    $error = sprintf('Param [%s] required', $item);
                 }
             }
-        } else $error = [sprintf('Extra data, [%s].', implode(',', $error))];
+        } else $error = sprintf('Extra data, [%s]', implode(', ', $extra));
 
-        return $error;
+        if (isset($error)) {
+            throw new ValidateException($error);
+        }
+        return $this;
     }
 
     private function decode(string $params)

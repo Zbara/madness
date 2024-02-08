@@ -7,11 +7,14 @@ class LoaderJSON
     private string $file;
     private array $json;
 
-    public function getJson(string $key): array
+    public function getJson(string|array $key = null): array
     {
-        if($key) {
-            return $this->json[$key];
-        } else return $this->json;
+        if($key !== null) {
+            if(is_array($key)){
+                return $this->json[$key[0]][$key[1]];
+            } else return $this->json[$key];
+        }
+        return $this->json;
     }
 
     /**

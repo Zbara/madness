@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Game\Authorize;
 use App\Game\BattlePve;
+use App\Game\Collection;
 use App\Game\Fortunes;
+use App\Game\Job;
 use App\Game\Stats;
 use App\Model\UserParams;
 use App\Response\DataResponse;
@@ -65,4 +67,16 @@ class GameController extends AbstractController
     {
         return $this->json($stats->raise());
     }
+    #[Route('/job/do', name: 'app_job_do', options: ['job_id'])]
+    public function jobDo(Job $job): Response
+    {
+        return $this->json($job->do());
+    }
+
+    #[Route('/collection/complete', name: 'app_collection_complete', options: ['collection_id'])]
+    public function complete(Collection $collection): Response
+    {
+        return $this->json($collection->complete());
+    }
+
 }

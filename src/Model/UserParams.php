@@ -22,6 +22,44 @@ class UserParams
     private int $session_id = 0;
     private int $boss_id = 0;
     private int $cell_id = 0;
+    private int $job_id = 0;
+    private int $collection_id = 0;
+
+    /**
+     * @return int
+     */
+    public function getCollectionId(): int
+    {
+        return $this->collection_id;
+    }
+
+    /**
+     * @param int $collection_id
+     * @return UserParams
+     */
+    public function setCollectionId(int $collection_id): UserParams
+    {
+        $this->collection_id = $collection_id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getJobId(): int
+    {
+        return $this->job_id;
+    }
+
+    /**
+     * @param int $job_id
+     * @return UserParams
+     */
+    public function setJobId(int $job_id): UserParams
+    {
+        $this->job_id = $job_id;
+        return $this;
+    }
     private string $name;
 
     /**

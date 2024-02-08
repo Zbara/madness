@@ -39,14 +39,17 @@ class DataResponse
 
 
     #[ArrayShape(['response' => "array"])]
-    public function error(int $status, string|array $messages): array
+    public function error(int $status, string|array $messages, string $exception = '', string $trace = ''): array
     {
         return [
             'response' => [
-                'data' => [],
                 'error' => [
                     'messages' => $messages,
                     'status' => $status
+                ],
+                'debug' => [
+                    'exception' => $exception,
+                    'trace' => $trace
                 ],
                 'system' => $this->system()
             ]

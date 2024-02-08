@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JetBrains\PhpStorm\Pure;
+use App\Entity\Collection as EntityCollection;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 class Users
@@ -78,6 +79,12 @@ class Users
 
     #[ORM\OneToOne(mappedBy: 'user', targetEntity: Skills::class, cascade: ['persist', 'remove'])]
     private $skills;
+
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Job::class, cascade: ['persist', 'remove'])]
+    private $job;
+
+    #[ORM\OneToOne(mappedBy: 'user', targetEntity: EntityCollection::class, cascade: ['persist', 'remove'])]
+    private $collection;
 
     #[Pure]
     public function __construct()
@@ -437,6 +444,50 @@ class Users
         }
 
         $this->skills = $skills;
+
+        return $this;
+    }
+
+    public function getJob(): ?Job
+    {
+        return $this->job;
+    }
+
+    public function setJob(?Job $job): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($job === null && $this->job !== null) {
+            $this->job->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($job !== null && $job->getUser() !== $this) {
+            $job->setUser($this);
+        }
+
+        $this->job = $job;
+
+        return $this;
+    }
+
+    public function getCollection(): ?EntityCollection
+    {
+        return $this->collection;
+    }
+
+    public function setCollection(?EntityCollection $collection): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($collection === null && $this->collection !== null) {
+            $this->collection->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($collection !== null && $collection->getUser() !== $this) {
+            $collection->setUser($this);
+        }
+
+        $this->collection = $collection;
 
         return $this;
     }

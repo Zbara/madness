@@ -1,0 +1,211 @@
+{
+  "mission": {
+    "item": [
+      {
+        "id": "1",
+        "title": "Собрать по палатам утки",
+        "category_id": "1",
+        "energy": "3",
+        "time": "0",
+        "max_count": "5",
+        "drops": {
+          "drop_item": [
+            {
+              "type": "currency1",
+              "count": "4"
+            },
+            {
+              "type": "xp",
+              "count": "4"
+            }
+          ]
+        },
+        "pos": "10",
+        "need_area": {
+          "-self-closing": "true"
+        },
+        "need_min_level": "1",
+        "need_max_level": "0",
+        "need_friend_count": "0",
+        "need_invite_count": "0",
+        "need_battle_rank": "0",
+        "need_skill": "0,0,0,0",
+        "need_boss_kill": {
+          "-self-closing": "true"
+        },
+        "need_mission_category_finish": {
+          "-self-closing": "true"
+        },
+        "need_ornament": "none:0",
+        "need_collection": {
+          "-self-closing": "true"
+        },
+        "production": "yes"
+      },
+      {
+        "id": "2",
+        "title": "Стирка постельного белья",
+        "category_id": "1",
+        "energy": "6",
+        "time": "0",
+        "max_count": "5",
+        "drops": {
+          "drop_item": [
+            {
+              "type": "xp",
+              "count": "8"
+            },
+            {
+              "type": "currency1",
+              "count": "7"
+            }
+          ]
+        },
+        "pos": "20",
+        "need_area": {
+          "-self-closing": "true"
+        },
+        "need_min_level": "1",
+        "need_max_level": "0",
+        "need_friend_count": "0",
+        "need_invite_count": "0",
+        "need_battle_rank": "0",
+        "need_skill": "0,0,0,0",
+        "need_boss_kill": {
+          "-self-closing": "true"
+        },
+        "need_mission_category_finish": {
+          "-self-closing": "true"
+        },
+        "need_ornament": "none:0",
+        "need_collection": {
+          "-self-closing": "true"
+        },
+        "production": "yes"
+      },
+      {
+        "id": "3",
+        "title": "Отмыть полы в операционной",
+        "category_id": "1",
+        "energy": "6",
+        "time": "0",
+        "max_count": "5",
+        "drops": {
+          "drop_item": [
+            {
+              "type": "xp",
+              "count": "8"
+            },
+            {
+              "type": "currency1",
+              "count": "7"
+            }
+          ]
+        },
+        "pos": "30",
+        "need_area": {
+          "-self-closing": "true"
+        },
+        "need_min_level": "1",
+        "need_max_level": "0",
+        "need_friend_count": "0",
+        "need_invite_count": "0",
+        "need_battle_rank": "0",
+        "need_skill": "0,0,0,0",
+        "need_boss_kill": {
+          "-self-closing": "true"
+        },
+        "need_mission_category_finish": {
+          "-self-closing": "true"
+        },
+        "need_ornament": "none:0",
+        "need_collection": {
+          "-self-closing": "true"
+        },
+        "production": "yes"
+      },
+      {
+        "id": "4",
+        "title": "Подменить лекарства на глюкозу",
+        "category_id": "1",
+        "energy": "8",
+        "time": "0",
+        "max_count": "5",
+        "drops": {
+          "drop_item": [
+            {
+              "type": "currency1",
+              "count": "9"
+            },
+            {
+              "type": "xp",
+              "count": "11"
+            }
+          ]
+        },
+        "pos": "40",
+        "need_area": {
+          "-self-closing": "true"
+        },
+        "need_min_level": "1",
+        "need_max_level": "0",
+        "need_friend_count": "0",
+        "need_invite_count": "0",
+        "need_battle_rank": "0",
+        "need_skill": "0,0,0,0",
+        "need_boss_kill": {
+          "-self-closing": "true"
+        },
+        "need_mission_category_finish": {
+          "-self-closing": "true"
+        },
+        "need_ornament": "none:0",
+        "need_collection": {
+          "-self-closing": "true"
+        },
+        "production": "yes"
+      },
+      {
+        "id": "5",
+        "title": "Сортировать личные дела",
+        "category_id": "1",
+        "energy": "8",
+        "time": "0",
+        "max_count": "5",
+        "drops": {
+          "drop_item": [
+            {
+              "type": "currency1",
+              "count": "9"
+            },
+            {
+              "type": "xp",
+              "count": "11"
+            }
+          ]
+        },
+        "pos": "50",
+        "need_area": {
+          "-self-closing": "true"
+        },
+        "need_min_level": "1",
+        "need_max_level": "0",
+        "need_friend_count": "0",
+        "need_invite_count": "0",
+        "need_battle_rank": "0",
+        "need_skill": "0,0,0,0",
+        "need_boss_kill": {
+          "-self-closing": "true"
+        },
+        "need_mission_category_finish": {
+          "-self-closing": "true"
+        },
+        "need_ornament": "none:0",
+        "need_collection": {
+          "-self-closing": "true"
+        },
+        "production": "yes"
+      }
+    ]
+  }
+}

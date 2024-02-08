@@ -19,7 +19,7 @@ class Skills
     #[ORM\Column(type: 'array')]
     private $store;
 
-    #[ORM\OneToOne(targetEntity: Users::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'skills', targetEntity: Users::class, cascade: ['persist', 'remove'])]
     private $user;
 
     public function getId(): ?int
