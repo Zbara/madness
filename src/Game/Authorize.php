@@ -65,7 +65,7 @@ class Authorize
                 ],
                 [
                     'id' => 2,
-                    'count' => 0
+                    'count' => 5
                 ],
                 [
                     'id' => 3,
@@ -73,7 +73,7 @@ class Authorize
                 ],
                 [
                     'id' => 4,
-                    'count' => 0
+                    'count' => 
                 ],
                 [
                     'id' => 5,
@@ -157,6 +157,7 @@ class Authorize
                     'total' => (int)$user->getBattleRank()
                 ]
             ],
+
             'missions' => $this->missions->getMissions($user->getJob()),
             'collection' => $this->collections->getCollection($user->getCollection()),
             'session' => $this->session->setSession($user)
@@ -164,7 +165,9 @@ class Authorize
 
         $this->manager->flush();
 
-        return $this->dataResponse->success(DataResponse::STATUS_SUCCESS, $data);
+        return $this->dataResponse->success(
+            DataResponse::STATUS_SUCCESS, $data
+        );
     }
 
     private function user(): ?\App\Entity\Users
@@ -184,6 +187,7 @@ class Authorize
                     ->setCreatedAt(time())
                     ->setCollection(Collections::COLLECTION)
                 )
+                
                 ->setJob((new Job())
                     ->setMissions(self::START_MISSION)
                 )
